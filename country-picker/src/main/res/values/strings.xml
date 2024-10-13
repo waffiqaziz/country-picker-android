@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="open_dialog">Open Dialog</string>
+  <string name="country_flag">Country Flag</string>
+  <string name="choose_your_country">Choose your Country</string>
+  <string name="enter_by_name_or_code">Enter by name or code</string>
+</resources>

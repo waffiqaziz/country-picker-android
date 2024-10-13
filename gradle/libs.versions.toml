@@ -1,0 +1,31 @@
+[versions]
+# Plugin versions
+agp = "8.2.0"
+kotlin = "1.9.10"
+
+# AndroidX Libraries
+coreKtx = "1.13.1"
+appcompat = "1.6.1"
+cardview = "1.0.0"
+
+# UI components
+material = "1.11.0"
+recyclerview = "1.3.2"
+coordinatorlayout = "1.2.0"
+
+[libraries]
+# AndroidX Libraries
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-cardview = { group = "androidx.cardview", name = "cardview", version.ref = "cardview" }
+
+# UI components
+google-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+androidx-coordinatorlayout = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "coordinatorlayout" }
+
+[plugins]
+# Core
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

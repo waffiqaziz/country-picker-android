@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="320dp"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:padding="20dp">
+
+  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/choose_your_country"
+    android:textAppearance="?attr/textAppearanceTitleLarge" />
+
+  <EditText
+    android:id="@+id/et_search"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="10dp"
+    android:autofillHints="Indonesia"
+    android:background="@drawable/rounded_edit_text"
+    android:drawableEnd="@drawable/ic_cross"
+    android:hint="@string/enter_by_name_or_code"
+    android:inputType="text" />
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rv_country"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_marginBottom="12dp"
+    android:layout_weight="1"
+    android:layout_gravity="center_vertical"
+    android:scrollbars="vertical"
+
+    app:fastScrollHorizontalThumbDrawable="@drawable/thumb_drawable"
+    app:fastScrollHorizontalTrackDrawable="@drawable/track_drawable"
+    app:fastScrollVerticalThumbDrawable="@drawable/thumb_drawable"
+    app:fastScrollVerticalTrackDrawable="@drawable/track_drawable"
+    tools:listitem="@layout/item_country" />
+
+</LinearLayout>

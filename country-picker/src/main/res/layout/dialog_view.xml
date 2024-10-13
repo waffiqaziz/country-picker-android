@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  app:cardBackgroundColor="@android:color/transparent"
+  app:strokeWidth="0dp">
+
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <ImageView
+      android:id="@+id/iv_country_flag"
+      android:layout_width="24dp"
+      android:layout_height="wrap_content"
+      android:adjustViewBounds="true"
+      android:src="@drawable/flag_id"
+      android:contentDescription="@string/country_flag"
+      android:scaleType="fitCenter" />
+
+    <TextView
+      android:id="@+id/tv_country_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginHorizontal="8dp"
+      android:text="ID"
+      android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+    <ImageView
+      android:layout_width="32dp"
+      android:layout_height="32dp"
+      android:contentDescription="@string/country_flag"
+      android:src="@drawable/ic_drop_down" />
+  </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

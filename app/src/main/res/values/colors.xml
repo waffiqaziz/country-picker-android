@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="black">#FF000000</color>
+  <color name="white">#FFFFFFFF</color>
+
+  <color name="primary">#D5E8D4</color> <!-- Soft nature green with a vintage feel -->
+  <color name="primaryVariant">#567D46</color> <!-- Deeper forest green for vintage tones -->
+  <color name="onPrimary">#FFFFFF</color> <!-- White for text on primary color -->
+
+  <color name="secondary">#A39E92</color> <!-- Muted beige for vintage accents -->
+  <color name="secondaryVariant">#807D72</color> <!-- Darker vintage beige for contrasts -->
+  <color name="onSecondary">#F2E8D5</color> <!-- Light warm tone on secondary -->
+
+  <color name="background">#FAF4E1</color> <!-- Vintage light cream background -->
+  <color name="onBackground">#4B5320</color> <!-- Dark olive green for text on background -->
+
+  <color name="surface">#E5D6A7</color> <!-- Muted soft yellow for surfaces -->
+  <color name="onSurface">#6C5F47</color> <!-- Warm brown text for vintage feel -->
+
+  <color name="error">#9B6B5A</color> <!-- Muted red-brown vintage error color -->
+  <color name="onError">#FFFFFF</color> <!-- White text on error -->
+
+  <color name="tertiary">#C4B29F</color> <!-- Light brown for subtle tertiary accents -->
+</resources>
