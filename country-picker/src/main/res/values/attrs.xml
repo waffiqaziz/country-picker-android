@@ -1,0 +1,14 @@
+<resources>
+  <declare-styleable name="CountryPickerButton">
+    <attr name="cpa_defaultCountryISO" format="string" />
+    <attr name="cpa_dialogAutoFocus" format="boolean" />
+    <attr name="cpa_dialogBackgroundColor" format="color" />
+    <attr name="cpa_dialogSearchBackgroundColor" format="color" />
+    <attr name="cpa_dialogTextColor" format="color" />
+    <attr name="cpa_dialogTextHintColor" format="color" />
+    <attr name="cpa_dialogApplyBorderSearch" format="boolean" />
+    <attr name="cpa_dialogSearchBorderColor" format="color" />
+    <attr name="cpa_dialogSearchCrossIconColor" format="color" />
+    <attr name="cpa_fontFamily" format="reference" />
+  </declare-styleable>
+</resources>

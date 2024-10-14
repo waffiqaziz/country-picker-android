@@ -1,6 +1,7 @@
 package com.waffiq.countryPicker
 
 import android.annotation.SuppressLint
+import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
@@ -9,7 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.waffiq.countryPicker.databinding.ItemCountryBinding
 import com.waffiq.countryPicker.model.Country
 
-class CountryAdapter :
+class CountryAdapter(
+  private var textColor: Int,
+  private val typeface: Typeface?,
+):
   ListAdapter<Country, CountryAdapter.CountryViewHolder>(CountryDiffCallback()) {
 
   var onItemClick: ((Country) -> Unit)? = null
@@ -32,6 +36,16 @@ class CountryAdapter :
 
           tvCountryCode.isVisible = textWidth <= availableWidth
         }
+
+        // Set the text color
+        tvCountryName.setTextColor(textColor)
+        tvCountryCode.setTextColor(textColor)
+        tvCountryPhone.setTextColor(textColor)
+
+        // Set typeface
+        tvCountryName.typeface = typeface
+        tvCountryCode.typeface = typeface
+        tvCountryPhone.typeface = typeface
       }
     }
 

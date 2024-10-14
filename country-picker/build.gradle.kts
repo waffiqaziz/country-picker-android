@@ -1,7 +1,7 @@
 plugins {
   alias(libs.plugins.android.library)
   alias(libs.plugins.kotlin.android)
-  id ("maven-publish")
+  id("maven-publish")
 }
 
 android {
@@ -36,12 +36,28 @@ android {
 dependencies {
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.appcompat)
-  implementation(libs.androidx.cardview)
   implementation(libs.androidx.recyclerview)
-  
+
   // material3
   implementation(libs.google.material)
+
+  // testing
+  testImplementation(libs.junit)
+  testImplementation(libs.mockito)
+  testImplementation(libs.mockito.kotlin)
+  testImplementation(libs.mock.io)
+  testImplementation(libs.androidx.test.core)
+  testImplementation(libs.androidx.test.ext.junit)
+  testImplementation(libs.androidx.test.rules)
+
+  androidTestImplementation(libs.androidx.test.core)
+  androidTestImplementation(libs.mockito.android)
+  androidTestImplementation(libs.androidx.test.ext.junit)
+  androidTestImplementation(libs.androidx.test.runner)
+  androidTestImplementation(libs.espresso)
 }
+
+
 afterEvaluate {
   publishing {
     publications {
@@ -49,7 +65,7 @@ afterEvaluate {
         from(components["release"])
         groupId = "com.github.waffiqaziz"
         artifactId = "country-picker"
-        version = "0.0.1"
+        version = "0.0.2"
       }
     }
   }

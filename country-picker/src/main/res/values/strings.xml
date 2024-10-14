@@ -4,4 +4,5 @@
   <string name="country_flag">Country Flag</string>
   <string name="choose_your_country">Choose your Country</string>
   <string name="enter_by_name_or_code">Enter by name or code</string>
+  <string name="clear_query">clear query</string>
 </resources>
