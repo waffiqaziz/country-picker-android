@@ -22,6 +22,7 @@ mockito = "5.14.1"
 mockitoKotlinVersion = "5.4.0"
 espresso = "3.6.1"
 mockkVersion = "1.13.13"
+robolectric = "4.13"
 
 [libraries]
 # AndroidX Libraries
@@ -35,15 +36,16 @@ androidx-coordinatorlayout = { group = "androidx.coordinatorlayout", name = "coo
 
 # Testing
 junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "testRules" }
+#androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "testRules" }
 androidx-test-core = { group = "androidx.test", name = "core", version.ref = "testCore" }
 androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "testRunner" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "testExtJunit" }
 mockito = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
 mockito-android = { group = "org.mockito", name = "mockito-android", version.ref = "mockito" }
 mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockitoKotlinVersion" }
-mock-io = { group = "io.mockk", name = "mockk", version.ref = "mockkVersion" }
+#mock-io = { group = "io.mockk", name = "mockk", version.ref = "mockkVersion" }
 espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 
 [plugins]
 # Core

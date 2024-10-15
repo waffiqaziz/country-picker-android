@@ -3,12 +3,12 @@ package com.waffiq.countryPicker
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.waffiq.CountryPickerButton
 import com.waffiq.countryPicker.databinding.ActivityMainBinding
-import com.waffiq.countryPicker.model.Helper.countryList
 
 class MainActivity : AppCompatActivity() {
 
-  private lateinit var binding: ActivityMainBinding
+  lateinit var binding: ActivityMainBinding
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
