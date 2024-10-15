@@ -21,4 +21,9 @@
   <color name="onError">#FFFFFF</color> <!-- White text on error -->
 
   <color name="tertiary">#C4B29F</color> <!-- Light brown for subtle tertiary accents -->
+
+  <color name="darkPurple">#1E1930</color>
+  <color name="gray">#ADAEB3</color>
+  <color name="dark_gray">#606165</color>
+
 </resources>

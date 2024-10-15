@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/container"
+  android:layout_width="320dp"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:padding="20dp">
+
+  <TextView
+    android:id="@+id/tv_header_search"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/choose_your_country"
+    android:textAppearance="?attr/textAppearanceTitleLarge" />
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="15dp"
+    android:paddingBottom="10dp">
+
+    <EditText
+      android:id="@+id/et_search"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:autofillHints="Indonesia"
+      android:background="@drawable/rounded_edit_text"
+      android:hint="@string/enter_by_name_or_code"
+      android:inputType="text"
+      android:paddingStart="10dp"
+      android:paddingEnd="40dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+      android:id="@+id/btn_clear"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="-4dp"
+      android:adjustViewBounds="true"
+      android:backgroundTint="@android:color/transparent"
+      android:contentDescription="@string/clear_query"
+      android:foreground="?attr/selectableItemBackgroundBorderless"
+      android:padding="8dp"
+      android:scaleType="fitCenter"
+      android:src="@drawable/ic_cross"
+      app:layout_constraintBottom_toBottomOf="@+id/et_search"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/et_search" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rv_country"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_gravity="center_vertical"
+    android:layout_marginBottom="12dp"
+    android:layout_weight="1"
+    android:scrollbars="vertical"
+
+    app:fastScrollHorizontalThumbDrawable="@drawable/thumb_drawable"
+    app:fastScrollHorizontalTrackDrawable="@drawable/track_drawable"
+    app:fastScrollVerticalThumbDrawable="@drawable/thumb_drawable"
+    app:fastScrollVerticalTrackDrawable="@drawable/track_drawable"
+    tools:listitem="@layout/item_country" />
+
+</LinearLayout>
