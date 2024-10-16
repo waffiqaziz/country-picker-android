@@ -1,4 +1,5 @@
 # Country Picker Android
+
 ![Header](/assets/images/feature_graphic.png)
 
 [![](https://jitpack.io/v/waffiqaziz/country-picker-android.svg)](https://jitpack.io/#waffiqaziz/country-picker-android)
@@ -6,7 +7,6 @@
 ![Monthly download statistics](https://jitpack.io/v/waffiqaziz/country-picker-android/month.svg)
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/waffiqaziz/country-picker-android)
 ![GitHub forks](https://img.shields.io/github/forks/waffiqaziz/country-picker-android)
-
 
 A user-friendly country picker for Android that allows users to select countries and search using
 country names, country code names, and country phone codes.
@@ -26,22 +26,15 @@ Follow the steps below based on your Gradle setup.
    In your project's settings.gradle (or settings.gradle.kts for Kotlin), add the following:
 
     ```groovy
-    // settings.gradle (Groovy)
     dependencyResolutionManagement {
       repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
       repositories {
         mavenCentral()
+        
+        // groovy
         maven { url 'https://jitpack.io' }
-      }
-    }
-    ```
-
-    ```kotlin
-    // settings.gradle.kts (Kotlin)
-    dependencyResolutionManagement {
-      repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-      repositories {
-        mavenCentral()
+   
+        // kotlin
         maven("https://jitpack.io")
       }
     }
@@ -53,22 +46,15 @@ Follow the steps below based on your Gradle setup.
    section:
 
     ```groovy
-    // build.gradle (Groovy)
     allprojects {
       repositories {
         google()
         mavenCentral()
+        
+        // groovy
         maven { url 'https://jitpack.io' }
-      }
-    }
-    ```
-
-    ```kotlin
-    // build.gradle.kts (Kotlin)
-    allprojects {
-      repositories {
-        google()
-        mavenCentral()
+        
+        // kotlin
         maven("https://jitpack.io")
       }
     }
@@ -78,17 +64,17 @@ Follow the steps below based on your Gradle setup.
    Next, add the CountryPicker library dependency in your app-level build.gradle (or
    build.gradle.kts for Kotlin):
    ```groovy
-   // build.gradle (Groovy)
    dependencies {
-       implementation 'com.github.waffiqaziz:country-picker-android:Tag'
+       // ...others dependency
+       
+       // groovy
+       implementation 'com.github.waffiqaziz:country-picker-android:Tag'                                                                        
+   
+       // kotlin
+       implementation("com.github.waffiqaziz:country-picker-android:Tag")
    }
    ```
-   ```kotlin
-   // build.gradle.kts (Kotlin)
-   dependencies {
-      implementation("com.github.waffiqaziz:country-picker-android:Tag")
-   }
-   ```
+
    *change `Tag` with the latest version*
 3. Sync Your Project
 
@@ -113,8 +99,6 @@ Follow the steps below based on your Gradle setup.
      app:cardElevation="0dp"
      app:strokeWidth="0dp" />
    ```
-   Result :
-
    |                 CountryPickerButton                  |                                                                                                  CountryPickerDialog                                                                                                   |
    |:----------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
    | <img src="assets/images/button_basic.png" width=100> | <img src="assets/images/dialog_basic.png" width=200>  <img src="assets/images/dialog_basic.jpg" width=200> <img src="assets/images/dialog_basic2.jpg" width=200> <img src="assets/images/dialog_basic3.jpg" width=200> |
@@ -146,29 +130,38 @@ Follow the steps below based on your Gradle setup.
    ```
 
    |                  CountryPickerButton                  |                                                                                                    CountryPickerDialog                                                                                                    |
-   |:-----------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+      |:-----------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
    | <img src="assets/images/button_custom.png" width=100> | <img src="assets/images/dialog_custom.png" width=200> <img src="assets/images/dialog_custom.jpg" width=200> <img src="assets/images/dialog_custom2.jpg" width=200> <img src="assets/images/dialog_custom3.jpg" width=200> |
 
-   To set the default country programmatically, you can use the `setCountry()` method:
+## Listeners and functions
 
-- With View Binding:
+### Set default country
+
+To set the default country programmatically, you can use the `setCountry()` method:
+
   ```kotlin
-  binding.cpb.setCountry("MY")  // Set to Malaysia
-  ```
-- Without View Binding (using `findViewById()`)
-  ```kotlin
-  findViewById<CountryPickerButton>(R.id.cpb).setCountry("MY") // Set to Malaysia
+  binding.cpb.setCountry("MY")  // use viewbinding
+
+  // or
+
+  findViewById<CountryPickerButton>(R.id.cpb).setCountry("MY")
   ```
 
-  To get the selected country when using `CountryPickerButton`, you can implement
-  the `onCountrySelectedListener`:
+### Get selected country
+
+To get the selected country when using `CountryPickerButton`, you can implement
+the `onCountrySelectedListener`:
 
    ```kotlin
    binding.cpb.onCountrySelectedListener = {
       Toast.makeText(this@MainActivity, it.name, Toast.LENGTH_SHORT).show()
    }
    ```
-  To get the selected country without listener using `selectedCountryCode`
+
+To get the selected country without listener using `selectedCountryCode`
+```kotlin
+binding.cpb.selectedCountryCode // return "ID" (default country)
+```
 
 Note : You can also explore more about `CountryPickerButton`
 via [activity_layout](https://github.com/waffiqaziz/country-picker-android/blob/master/app/src/main/res/layout/activity_main.xml). `CountryPickerButton`
