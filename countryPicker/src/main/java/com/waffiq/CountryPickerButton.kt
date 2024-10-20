@@ -7,6 +7,7 @@ import android.graphics.Typeface
 import android.os.Handler
 import android.os.Looper
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.card.MaterialCardView
@@ -33,7 +34,7 @@ class CountryPickerButton @JvmOverloads constructor(
   defStyleAttr: Int = 0
 ) : MaterialCardView(context, attrs, defStyleAttr) {
   private lateinit var binding: DialogViewBinding
-  private lateinit var countryPickerDialog: CountryPickerDialog
+  lateinit var countryPickerDialog: CountryPickerDialog
 
   // Define a listener for the selected country
   var onCountrySelectedListener: ((Country) -> Unit)? = null
@@ -52,7 +53,7 @@ class CountryPickerButton @JvmOverloads constructor(
     // Set default values
     val defaultCountry = Country("Indonesia", "+62", "ID", flag_id)
     binding.ivCountryFlag.setImageResource(defaultCountry.flagResId)
-    binding.tvCountryName.text = defaultCountry.isoCode
+    binding.tvCountryId.text = defaultCountry.isoCode
     selectedCountryCode = defaultCountry
   }
 
@@ -62,8 +63,7 @@ class CountryPickerButton @JvmOverloads constructor(
         selectedCountryCode = country
 
         // Update the country flag and name on selection
-        binding.ivCountryFlag.setImageResource(getFlagResIdByIsoCode(country.isoCode))
-        binding.tvCountryName.text = country.isoCode
+        setIdAndFlagByIsoCode(country.isoCode)
 
         // Notify the listener with the selected country
         onCountrySelectedListener?.invoke(country)
@@ -78,9 +78,15 @@ class CountryPickerButton @JvmOverloads constructor(
   }
 
   // Helper function to get the flag resource by ISO code
-  private fun getFlagResIdByIsoCode(isoCode: String): Int {
-    return countryList.find { it.isoCode == isoCode }?.flagResId
-      ?: throw IllegalArgumentException("Country with isoCode $isoCode not found")
+  private fun setIdAndFlagByIsoCode(isoCode: String) {
+    val result = countryList.find { it.isoCode == isoCode }
+    if (result != null) {
+      binding.ivCountryFlag.setImageResource(result.flagResId)
+      binding.tvCountryId.text = result.isoCode
+      result.isoCode
+    } else {
+      Log.e("CountryPicker", "Country Not found, Make sure ISO Code is correct")
+    }
   }
 
   private fun initAttributes(context: Context, attrs: AttributeSet?) {
@@ -126,11 +132,11 @@ class CountryPickerButton @JvmOverloads constructor(
       val fontResId =
         typedArray.getResourceId(CountryPickerButton_cpa_fontFamily, -1)
       if (fontResId != -1) fontFamily = ResourcesCompat.getFont(context, fontResId)
-      binding.tvCountryName.typeface = fontFamily
+      binding.tvCountryId.typeface = fontFamily
 
       typedArray.recycle()
 
-      binding.tvCountryName.setTextColor(dialogTextColor)
+      binding.tvCountryId.setTextColor(dialogTextColor)
       countryPickerDialog = CountryPickerDialog(
         context,
         isAutoFocus,
@@ -146,18 +152,19 @@ class CountryPickerButton @JvmOverloads constructor(
     }
   }
 
-  fun setCountry(countryName: String) {
-    val defaultCountry = countryList.find { it.isoCode == countryName }
-    if (defaultCountry != null) {
+  fun setCountry(countryIsoCode: String): Result<Unit> {
+    val defaultCountry = countryList.find { it.isoCode == countryIsoCode.uppercase() }
+    return if (defaultCountry != null) {
       binding.ivCountryFlag.setImageResource(defaultCountry.flagResId)
-      binding.tvCountryName.text = defaultCountry.isoCode
+      binding.tvCountryId.text = defaultCountry.isoCode
+      Result.success(Unit)
     } else {
-      throw IllegalArgumentException("Country not supported")
+      Result.failure(IllegalArgumentException("Country not supported"))
     }
   }
 
   fun getCurrentCountry(): String {
-    return binding.tvCountryName.text.toString()
+    return binding.tvCountryId.text.toString()
   }
 }
 

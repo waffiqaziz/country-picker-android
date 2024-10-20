@@ -24,7 +24,7 @@
       android:src="@drawable/flag_id" />
 
     <TextView
-      android:id="@+id/tv_country_name"
+      android:id="@+id/tv_country_id"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginHorizontal="8dp"

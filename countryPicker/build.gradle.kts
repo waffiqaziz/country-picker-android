@@ -1,3 +1,5 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+
 plugins {
   alias(libs.plugins.android.library)
   alias(libs.plugins.kotlin.android)
@@ -33,19 +35,13 @@ android {
   }
 
   testOptions {
+    animationsDisabled = true
+    unitTests.isReturnDefaultValues = true
     unitTests {
       isIncludeAndroidResources = true
     }
   }
 }
-
-tasks.withType<Test> {
-  reports {
-    junitXml.required.set(true)  // Enable JUnit XML reports
-    html.required.set(true)      // Enable HTML reports
-  }
-}
-
 
 dependencies {
   implementation(libs.androidx.core.ktx)
@@ -60,16 +56,7 @@ dependencies {
   testImplementation(libs.robolectric)
   testImplementation(libs.mockito)
   testImplementation(libs.mockito.kotlin)
-//  testImplementation(libs.mock.io)
   testImplementation(libs.androidx.test.core)
-//  testImplementation(libs.androidx.test.ext.junit)
-//  testImplementation(libs.androidx.test.rules)
-//
-//  androidTestImplementation(libs.androidx.test.core)
-  androidTestImplementation(libs.mockito.android)
-  androidTestImplementation(libs.androidx.test.ext.junit)
-  androidTestImplementation(libs.androidx.test.runner)
-  androidTestImplementation(libs.espresso)
 }
 
 
@@ -80,8 +67,21 @@ afterEvaluate {
         from(components["release"])
         groupId = "com.github.waffiqaziz"
         artifactId = "country-picker"
-        version = "0.0.2"
+        version = "0.1.1"
       }
     }
+  }
+}
+
+// Check if the test task exists
+tasks.withType<Test>().configureEach {
+  testLogging {
+    events("passed", "skipped", "failed")
+    showExceptions = true
+    showCauses = true
+    showStackTraces = true
+    exceptionFormat = TestExceptionFormat.FULL // Shows full stack trace
+    // This will show the names of the tests being executed
+    showStandardStreams = true
   }
 }
