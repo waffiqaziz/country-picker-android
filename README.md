@@ -3,6 +3,7 @@
 ![Header](/assets/images/feature_graphic.png)
 
 [![](https://jitpack.io/v/waffiqaziz/country-picker-android.svg)](https://jitpack.io/#waffiqaziz/country-picker-android)
+![](https://github.com/waffiqaziz/country-picker-android/actions/workflows/unit_testing.yml/badge.svg)
 ![GitHub License](https://img.shields.io/github/license/waffiqaziz/country-picker-android)
 ![Monthly download statistics](https://jitpack.io/v/waffiqaziz/country-picker-android/month.svg)
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/waffiqaziz/country-picker-android)
@@ -130,7 +131,7 @@ Follow the steps below based on your Gradle setup.
    ```
 
    |                  CountryPickerButton                  |                                                                                                    CountryPickerDialog                                                                                                    |
-      |:-----------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+   |:-----------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
    | <img src="assets/images/button_custom.png" width=100> | <img src="assets/images/dialog_custom.png" width=200> <img src="assets/images/dialog_custom.jpg" width=200> <img src="assets/images/dialog_custom2.jpg" width=200> <img src="assets/images/dialog_custom3.jpg" width=200> |
 
 ## Listeners and functions
@@ -199,3 +200,10 @@ limitations under the License.
 If you encounter any issues or bugs, feel free to open a new issue in the repository and provide as
 much detail as possible. Include `steps to reproduce the issue`, the `expected behavior`, and any
 `relevant logs`.
+
+## Special Thanks
+
+Grateful acknowledgment to the following resources and projects for their valuable contributions:
+
+- [Flagpedia.net](https://flagpedia.net/download) - For providing the country flags used in this project.
+- [CountryCodePickerProject](https://github.com/hbb20/CountryCodePickerProject) - For inspiring the creation of this project.

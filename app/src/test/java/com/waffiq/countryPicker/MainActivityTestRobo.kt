@@ -15,7 +15,7 @@ import org.robolectric.shadows.ShadowToast
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [28])
 @LooperMode(LooperMode.Mode.PAUSED) // To pause the main looper for testing
-class MainActivityTest {
+class MainActivityTestRobo {
 
   private lateinit var activity: MainActivity
 

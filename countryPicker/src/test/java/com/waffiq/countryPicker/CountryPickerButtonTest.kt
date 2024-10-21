@@ -7,7 +7,8 @@ import com.waffiq.countryPicker.countryPicker.R.drawable.flag_in
 import com.waffiq.countryPicker.countryPicker.R.style.Base_Theme_CountryPicker
 import com.waffiq.countryPicker.countryPicker.model.Country
 import org.junit.Assert.assertEquals
-import org.junit.Assert.fail
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -46,11 +47,18 @@ class CountryPickerButtonTest {
 
   @Test
   fun testInvalidCountrySelection() {
-    try {
-      countryPickerButton.setCountry("true") // Invalid country code
-      fail("Expected IllegalArgumentException")
-    } catch (e: IllegalArgumentException) {
-      assertEquals("Country not supported", e.message)
-    }
+    // Act: Call setCountry with an invalid country code
+    val result = countryPickerButton.setCountry("true") // Invalid country code
+
+    // Assert: Check that the result is a failure
+    assertTrue(result.isFailure)
+
+    // Assert: Check that the exception is of type IllegalArgumentException
+    val exception = result.exceptionOrNull()
+    assertNotNull(exception)
+    assertTrue(exception is IllegalArgumentException)
+
+    // Assert: Check that the exception message is correct
+    assertEquals("Country not supported", exception?.message)
   }
 }

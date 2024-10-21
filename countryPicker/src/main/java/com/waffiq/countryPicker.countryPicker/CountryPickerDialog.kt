@@ -97,7 +97,6 @@ class CountryPickerDialog(
     binding.rvCountry.adapter = adapter
     binding.rvCountry.layoutManager = LinearLayoutManager(context)
     binding.btnClear.setOnClickListener {
-      Log.e("KKKKKKKKKKKKKKKK", binding.etSearch.text.toString())
       if (binding.etSearch.text.isNotEmpty()) {
         binding.etSearch.text.clear()
       } else {
