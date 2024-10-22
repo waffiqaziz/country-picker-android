@@ -5,6 +5,7 @@
 [![](https://jitpack.io/v/waffiqaziz/country-picker-android.svg)](https://jitpack.io/#waffiqaziz/country-picker-android)
 ![](https://github.com/waffiqaziz/country-picker-android/actions/workflows/unit_testing.yml/badge.svg)
 ![GitHub License](https://img.shields.io/github/license/waffiqaziz/country-picker-android)
+[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fwaffiqaziz%2Fcountry-picker-android%2F&countColor=%2388d66c&style=flat)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fwaffiqaziz%2Fcountry-picker-android%2F)
 ![Monthly download statistics](https://jitpack.io/v/waffiqaziz/country-picker-android/month.svg)
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/waffiqaziz/country-picker-android)
 ![GitHub forks](https://img.shields.io/github/forks/waffiqaziz/country-picker-android)
@@ -85,54 +86,62 @@ Follow the steps below based on your Gradle setup.
 
    The `CountryPicker` library is integrated using XML layouts.
 
-   #### Basic implementation :
-   ```xml
-   <com.waffiq.CountryPickerButton
-     android:id="@+id/cpb"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_gravity="center"
-     android:clickable="true"
-     android:focusable="true"
-     android:foreground="?attr/selectableItemBackgroundBorderless"
-     app:cardBackgroundColor="@android:color/transparent"
-     app:cardCornerRadius="15dp"
-     app:cardElevation="0dp"
-     app:strokeWidth="0dp" />
-   ```
+    <details>
+      <summary>Basic implementation</summary>
+
+      ```xml
+      <com.waffiq.CountryPickerButton
+        android:id="@+id/cpb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp" />
+      ```
+
    |                 CountryPickerButton                  |                                                                                                  CountryPickerDialog                                                                                                   |
    |:----------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
    | <img src="assets/images/button_basic.png" width=100> | <img src="assets/images/dialog_basic.png" width=200>  <img src="assets/images/dialog_basic.jpg" width=200> <img src="assets/images/dialog_basic2.jpg" width=200> <img src="assets/images/dialog_basic3.jpg" width=200> |
+    
+   </details>
 
-   #### More customization :
+   <details>
+      <summary>With customization</summary>
 
-   ```xml
-    <com.waffiq.CountryPickerButton
-      android:id="@+id/cpb_custom"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      android:clickable="true"
-      android:focusable="true"
-      android:foreground="?attr/selectableItemBackgroundBorderless"
-      app:cardBackgroundColor="@color/darkPurple"
-      app:cardCornerRadius="15dp"
-      app:cardElevation="0dp"
-      app:cpa_defaultCountryISO="US"
-      app:cpa_dialogApplyBorderSearch="true"
-      app:cpa_dialogAutoFocus="true"
-      app:cpa_dialogBackgroundColor="@color/darkPurple"
-      app:cpa_dialogSearchBackgroundColor="@color/darkPurple"
-      app:cpa_dialogSearchCrossIconColor="@color/gray"
-      app:cpa_dialogTextColor="@color/gray"
-      app:cpa_dialogTextHintColor="@color/dark_gray"
-      app:cpa_fontFamily="@font/nunito_sans_regular"
-      app:strokeWidth="0dp" />
+      ```xml
+      <com.waffiq.CountryPickerButton
+        android:id="@+id/cpb_custom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:cardBackgroundColor="@color/darkPurple"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="0dp"
+        app:cpa_defaultCountryISO="US"
+        app:cpa_dialogApplyBorderSearch="true"
+        app:cpa_dialogAutoFocus="true"
+        app:cpa_dialogBackgroundColor="@color/darkPurple"
+        app:cpa_dialogSearchBackgroundColor="@color/darkPurple"
+        app:cpa_dialogSearchCrossIconColor="@color/gray"
+        app:cpa_dialogTextColor="@color/gray"
+        app:cpa_dialogTextHintColor="@color/dark_gray"
+        app:cpa_fontFamily="@font/nunito_sans_regular"
+        app:strokeWidth="0dp" />
    ```
 
    |                  CountryPickerButton                  |                                                                                                    CountryPickerDialog                                                                                                    |
    |:-----------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
    | <img src="assets/images/button_custom.png" width=100> | <img src="assets/images/dialog_custom.png" width=200> <img src="assets/images/dialog_custom.jpg" width=200> <img src="assets/images/dialog_custom2.jpg" width=200> <img src="assets/images/dialog_custom3.jpg" width=200> |
+   
+   </details>
 
 ## Listeners and functions
 
@@ -160,9 +169,10 @@ the `onCountrySelectedListener`:
    ```
 
 To get the selected country without listener using `selectedCountryCode`
-```kotlin
-binding.cpb.selectedCountryCode // return "ID" (default country)
-```
+
+   ```kotlin
+   binding.cpb.selectedCountryCode // return "ID" (default country)
+   ```
 
 Note : You can also explore more about `CountryPickerButton`
 via [activity_layout](https://github.com/waffiqaziz/country-picker-android/blob/master/app/src/main/res/layout/activity_main.xml). `CountryPickerButton`
@@ -205,5 +215,7 @@ much detail as possible. Include `steps to reproduce the issue`, the `expected b
 
 Grateful acknowledgment to the following resources and projects for their valuable contributions:
 
-- [Flagpedia.net](https://flagpedia.net/download) - For providing the country flags used in this project.
-- [CountryCodePickerProject](https://github.com/hbb20/CountryCodePickerProject) - For inspiring the creation of this project.
+- [Flagpedia.net](https://flagpedia.net/download) - For providing the country flags used in this
+  project.
+- [CountryCodePickerProject](https://github.com/hbb20/CountryCodePickerProject) - For inspiring the
+  creation of this project.
