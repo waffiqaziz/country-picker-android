@@ -22,12 +22,4 @@
   </style>
 
   <style name="Theme.CountryPicker" parent="Base.Theme.CountryPicker" />
-
-  <style name="RoundedDialog" parent="Theme.AppCompat.Dialog">
-    <item name="android:background">@drawable/rounded_dialog_background</item>
-    <item name="android:windowMinWidthMajor">80%</item>
-    <item name="android:windowMinWidthMinor">80%</item>
-    <item name="android:windowIsFloating">true</item>
-    <item name="android:windowBackground">@null</item>
-  </style>
 </resources>
