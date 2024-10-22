@@ -15,7 +15,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
-import com.waffiq.countryPicker.R.id.cpb
+import com.waffiq.countryPicker.R.id.cpb_test
 import com.waffiq.countryPicker.countryPicker.R.id.btn_clear
 import com.waffiq.countryPicker.countryPicker.R.id.et_search
 import com.waffiq.countryPicker.countryPicker.R.id.rv_country
@@ -29,12 +29,12 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 @MediumTest
-class CountryPickerDialogTestJUnit {
-  private lateinit var scenario: ActivityScenario<MainActivity>
+class CountryPickerDialogInstrumentedTest {
+  private lateinit var scenario: ActivityScenario<TestActivity>
   private val context: Context = ApplicationProvider.getApplicationContext()
 
   @get:Rule
-  val activityRule = ActivityScenarioRule(MainActivity::class.java)
+  val activityRule = ActivityScenarioRule(TestActivity::class.java)
 
   @Before
   fun setUp() {
@@ -48,9 +48,9 @@ class CountryPickerDialogTestJUnit {
 
   @Test
   fun testSearchCountryFilter() {
-    scenario = launchActivity(Intent(context, MainActivity::class.java))
+    scenario = launchActivity(Intent(context, TestActivity::class.java))
     // Open dialog
-    onView(withId(cpb)).perform(click())
+    onView(withId(cpb_test)).perform(click())
 
     // Search for a country
     onView(withId(et_search)).perform(typeText("Indonesia"))
@@ -61,10 +61,10 @@ class CountryPickerDialogTestJUnit {
 
   @Test
   fun testSelectCountryViaScrolling() {
-    scenario = launchActivity(Intent(context, MainActivity::class.java))
+    scenario = launchActivity(Intent(context, TestActivity::class.java))
 
     // Click the CountryPickerButton to open the dialog
-    onView(withId(cpb)).perform(click())
+    onView(withId(cpb_test)).perform(click())
 
     onView(withId(rv_country)).perform(
       RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
@@ -72,15 +72,15 @@ class CountryPickerDialogTestJUnit {
       )
     )
 
-    // Select the first country in the list
+    // Select country in the list
     onView(withText("Indonesia")).perform(click())
   }
 
   @Test
   fun testClearSearchField() {
-    scenario = launchActivity(Intent(context, MainActivity::class.java))
+    scenario = launchActivity(Intent(context, TestActivity::class.java))
     // Open dialog
-    onView(withId(cpb)).perform(click())
+    onView(withId(cpb_test)).perform(click())
 
     // Enter some text in search field
     onView(withId(et_search)).perform(typeText("Indonesia"))

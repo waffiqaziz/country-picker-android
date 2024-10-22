@@ -5,7 +5,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider
 import com.waffiq.CountryPickerButton
-import com.waffiq.countryPicker.R.id.cpb
+import com.waffiq.countryPicker.R.id.cpb_test
 import com.waffiq.countryPicker.countryPicker.CountryAdapter
 import com.waffiq.countryPicker.countryPicker.R.id.rv_country
 import com.waffiq.countryPicker.countryPicker.R.id.tv_country_id
@@ -38,7 +38,7 @@ class CountryPickerButtonTestRobo {
       .resume()
       .get()
 
-    countryPickerButton = activity.findViewById(cpb)
+    countryPickerButton = activity.findViewById(cpb_test)
   }
 
   @Test
@@ -73,9 +73,16 @@ class CountryPickerButtonTestRobo {
 
     // get selected country
     val selectedIsoCountry = countryPickerButton.findViewById<TextView>(
-      tv_country_id).text.toString()
-    
+      tv_country_id
+    ).text.toString()
+
     // Check if the button text is updated with selected country
     assertEquals(selectedIsoCountry, countryPickerButton.getCurrentCountry())
+  }
+
+  @Test
+  fun testDefaultCountryAttribute() {
+    // Check if the default country is correctly set from the attribute
+    assertEquals("MY", countryPickerButton.getCurrentCountry())
   }
 }

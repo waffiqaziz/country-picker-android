@@ -15,7 +15,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.waffiq.countryPicker.countryPicker.R.id.rv_country
 import com.waffiq.countryPicker.countryPicker.R.id.tv_country_id
 import com.waffiq.countryPicker.utils.EspressoIdlingResource
-import com.waffiq.countryPicker.R.id.cpb
+import com.waffiq.countryPicker.R.id.cpb_test
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -45,7 +45,7 @@ class CountryPickerButtonInstrumentedTest {
     scenario = launchActivity(Intent(context, TestActivity::class.java))
 
     // Click the CountryPickerButton
-    onView(withId(cpb)).perform(click())
+    onView(withId(cpb_test)).perform(click())
 
     // Check if the RecyclerView with country list is displayed
     onView(withId(rv_country)).check(matches(isDisplayed()))
@@ -56,7 +56,7 @@ class CountryPickerButtonInstrumentedTest {
     scenario = launchActivity(Intent(context, TestActivity::class.java))
 
     // Click the CountryPickerButton to open the dialog
-    onView(withId(cpb)).perform(click())
+    onView(withId(cpb_test)).perform(click())
 
     // Select the first country in the list
     onView(withText("Andorra")).perform(click())
