@@ -11,12 +11,9 @@ import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.InsetDrawable
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.waffiq.countryPicker.countryPicker.databinding.DialogCountryPickerBinding
@@ -69,18 +66,18 @@ class CountryPickerDialog(
 
     // Set soft input mode to pan the dialog when keyboard appears
     // keeps the current size of the dialog and moves it upwards when the keyboard appears
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-      ViewCompat.setOnApplyWindowInsetsListener(window?.decorView!!) { _, insets ->
-        val imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom
-        val navigationBarHeight =
-          insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
-        binding.root.setPadding(0, 0, 0, imeHeight - navigationBarHeight)
-        insets
-      }
-    } else {
-      @Suppress("DEPRECATION")
-      window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
-    }
+//    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+//      ViewCompat.setOnApplyWindowInsetsListener(window?.decorView!!) { _, insets ->
+//        val imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom
+//        val navigationBarHeight =
+//          insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+//        binding.root.setPadding(20, 20, 20, imeHeight - navigationBarHeight)
+//        insets
+//      }
+//    } else {
+    @Suppress("DEPRECATION")
+    window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+//    }
   }
 
   private fun dpToPx(dp: Int): Int {
