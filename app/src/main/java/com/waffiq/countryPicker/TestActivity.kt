@@ -17,8 +17,8 @@ class TestActivity : AppCompatActivity() {
     setContentView(binding.root)
 
     // findViewById<CountryPickerButton>(R.id.cpb).setCountry("MY")
-    binding.cpb.setCountry("MY")
-    binding.cpb.onCountrySelectedListener = {
+    binding.cpbTest.setCountry("MY")
+    binding.cpbTest.onCountrySelectedListener = {
       Toast.makeText(this@TestActivity, it.name, Toast.LENGTH_SHORT).show()
     }
   }
