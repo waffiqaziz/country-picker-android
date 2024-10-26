@@ -27,4 +27,5 @@
       app:cpa_fontFamily="@font/nunito_sans_regular"
       app:strokeWidth="0dp" />
 
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

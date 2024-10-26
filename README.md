@@ -215,6 +215,7 @@ much detail as possible. Include `steps to reproduce the issue`, the `expected b
 
 Grateful acknowledgment to the following resources and projects for their valuable contributions:
 
+
 - [Flagpedia.net](https://flagpedia.net/download) - For providing the country flags used in this
   project.
 - [CountryCodePickerProject](https://github.com/hbb20/CountryCodePickerProject) - For inspiring the
