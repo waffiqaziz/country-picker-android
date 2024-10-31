@@ -3,6 +3,9 @@
   "extends": [
     "config:base"
   ],
+  "baseBranches": [
+    "master"
+  ],
   "assignees": [
     "waffiqaziz"
   ],
@@ -37,41 +40,24 @@
       "allowedVersions": "!/SNAPSHOT$/"
     },
     {
-      "updateTypes": [
-        "major",
-        "minor"
-      ],
+      "updateTypes": ["major", "minor"],
       "automerge": false
     },
     {
-      "updateTypes": [
-        "patch"
-      ],
+      "updateTypes": ["patch"],
       "automerge": true
     },
     {
-      "matchDatasources": [
-        "gradle"
-      ],
+      "matchDatasources": ["gradle"],
       "enabled": true
     }
   ],
-  "ignorePresets": [
-    "npm:unpublishable"
-  ],
+  "ignorePresets": ["npm:unpublishable"],
   "pathRules": [
     {
-      "matchPaths": [
-        "gradle/libs.versions.toml"
-      ],
+      "matchPaths": ["gradle/libs.versions.toml"],
       "enabled": true
     }
   ],
-  "branchRules": [
-    {
-      "matchBranchName": "renovate/configure",
-      "enabled": true,
-      "prCreation": "not-pending"
-    }
-  ]
+  "prCreation": "not-pending"
 }
