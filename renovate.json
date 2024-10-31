@@ -50,16 +50,18 @@
     {
       "matchDatasources": ["gradle"],
       "enabled": true
-    }
-  ],
-  "managers": {
-    "gradle-wrapper": {
+    },
+    {
+      "description": "Update Gradle Wrapper",
+      "matchManagers": ["gradle-wrapper"],
       "fileMatch": [
         "(^|/)gradle/wrapper/gradle-wrapper\\.properties$"
       ],
-      "enabled": true
+      "groupName": "Gradle Wrapper",
+      "versioning": "gradle",
+      "automerge": false
     }
-  },
+  ],
   "ignorePresets": ["npm:unpublishable"],
   "pathRules": [
     {
