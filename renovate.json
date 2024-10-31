@@ -2,5 +2,29 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "updateInternalDependencies": "patch",
+  "automerge": true,
+  "enabled": true,
+  "packageRules": [
+    {
+      "updateTypes": ["major", "minor"],
+      "automerge": false
+    },
+    {
+      "updateTypes": ["patch"],
+      "automerge": true
+    },
+    {
+      "matchDatasources": ["gradle"],
+      "enabled": true
+    }
+  ],
+  "ignorePresets": ["npm:unpublishable"],
+  "pathRules": [
+    {
+      "matchPaths": ["gradle/libs.versions.toml"],
+      "enabled": true
+    }
   ]
 }
