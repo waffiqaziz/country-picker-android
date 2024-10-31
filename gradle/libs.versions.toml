@@ -24,7 +24,7 @@ mockitoKotlinVersion = "5.4.0"
 espresso = "3.6.1"
 mockkVersion = "1.13.13"
 robolectric = "4.13"
-constraintlayout = "2.1.4"
+constraintlayout = "2.2.0"
 
 [libraries]
 # AndroidX Libraries
