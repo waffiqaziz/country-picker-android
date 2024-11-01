@@ -1,6 +1,6 @@
 [versions]
 # Plugin versions
-agp = "8.7.1"
+agp = "8.7.2"
 kotlin = "2.0.21"
 
 # AndroidX Libraries
