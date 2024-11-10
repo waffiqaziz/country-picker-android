@@ -1,6 +1,7 @@
 # Country Picker Android
 
 ![Header](/assets/images/feature_graphic.png)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fwaffiqaziz%2Fcountry-picker-android.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fwaffiqaziz%2Fcountry-picker-android?ref=badge_shield)
 
 [![](https://jitpack.io/v/waffiqaziz/country-picker-android.svg)](https://jitpack.io/#waffiqaziz/country-picker-android)
 ![](https://github.com/waffiqaziz/country-picker-android/actions/workflows/unit_testing.yml/badge.svg)
@@ -204,6 +205,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fwaffiqaziz%2Fcountry-picker-android.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fwaffiqaziz%2Fcountry-picker-android?ref=badge_large)
 
 ## Reporting Issues
 
