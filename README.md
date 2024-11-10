@@ -9,6 +9,7 @@
 ![Monthly download statistics](https://jitpack.io/v/waffiqaziz/country-picker-android/month.svg)
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/waffiqaziz/country-picker-android)
 ![GitHub forks](https://img.shields.io/github/forks/waffiqaziz/country-picker-android)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fwaffiqaziz%2Fcountry-picker-android.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Fwaffiqaziz%2Fcountry-picker-android?ref=badge_small)
 
 A user-friendly country picker for Android that allows users to select countries and search using
 country names, country code names, and country phone codes.
