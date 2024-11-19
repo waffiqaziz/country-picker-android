@@ -3,13 +3,15 @@
 ![Header](/assets/images/feature_graphic.png)
 
 [![](https://jitpack.io/v/waffiqaziz/country-picker-android.svg)](https://jitpack.io/#waffiqaziz/country-picker-android)
-![](https://github.com/waffiqaziz/country-picker-android/actions/workflows/unit_testing.yml/badge.svg)
+![Unit Testing](https://github.com/waffiqaziz/country-picker-android/actions/workflows/unit_testing.yml/badge.svg)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/waffiqaziz/country-picker-android/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/waffiqaziz/country-picker-android/tree/master)
 ![GitHub License](https://img.shields.io/github/license/waffiqaziz/country-picker-android)
 [![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fwaffiqaziz%2Fcountry-picker-android%2F&countColor=%2388d66c&style=flat)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fwaffiqaziz%2Fcountry-picker-android%2F)
 ![Monthly download statistics](https://jitpack.io/v/waffiqaziz/country-picker-android/month.svg)
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/waffiqaziz/country-picker-android)
 ![GitHub forks](https://img.shields.io/github/forks/waffiqaziz/country-picker-android)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fwaffiqaziz%2Fcountry-picker-android.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Fwaffiqaziz%2Fcountry-picker-android?ref=badge_small)
+
 
 A user-friendly country picker for Android that allows users to select countries and search using
 country names, country code names, and country phone codes.
