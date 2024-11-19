@@ -16,6 +16,12 @@ jobs:
           keys:
             - v1-gradle-cache-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
       - run:
+          name: Grant execute permission for Gradle wrapper
+          command: chmod +x gradlew
+      - run:
+          name: Download Depedencies
+          command: ./gradlew androidDependencies
+      - run:
           name: Build APK
           command: ./gradlew assembleDebug
       - save_cache:
@@ -33,9 +39,9 @@ jobs:
     executor: android-executor
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-gradle-cache-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
+      - run:
+          name: Grant execute permission for Gradle wrapper
+          command: chmod +x gradlew
       - run:
           name: Run Unit Tests
           command: ./gradlew testDebugUnitTest
