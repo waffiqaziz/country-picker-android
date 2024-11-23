@@ -188,6 +188,22 @@ MaterialCardView [here](https://github.com/material-components/material-componen
 
 Read this [page](CONTRIBUTE.md)
 
+## Reporting Issues
+
+If you encounter any issues or bugs, feel free to open a new issue in the repository and provide as
+much detail as possible. Include `steps to reproduce the issue`, the `expected behavior`, and any
+`relevant logs`.
+
+## Special Thanks
+
+Grateful acknowledgment to the following resources and projects for their valuable contributions:
+
+
+- [Flagpedia.net](https://flagpedia.net/download) - For providing the country flags used in this
+  project.
+- [CountryCodePickerProject](https://github.com/hbb20/CountryCodePickerProject) - For inspiring the
+  creation of this project.
+
 ## License
 
 [Apache Version 2.0](LICENSE)
@@ -207,19 +223,3 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
-
-## Reporting Issues
-
-If you encounter any issues or bugs, feel free to open a new issue in the repository and provide as
-much detail as possible. Include `steps to reproduce the issue`, the `expected behavior`, and any
-`relevant logs`.
-
-## Special Thanks
-
-Grateful acknowledgment to the following resources and projects for their valuable contributions:
-
-
-- [Flagpedia.net](https://flagpedia.net/download) - For providing the country flags used in this
-  project.
-- [CountryCodePickerProject](https://github.com/hbb20/CountryCodePickerProject) - For inspiring the
-  creation of this project.
