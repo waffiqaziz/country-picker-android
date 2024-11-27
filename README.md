@@ -186,7 +186,7 @@ MaterialCardView [here](https://github.com/material-components/material-componen
 
 ## How to Contribute
 
-Read this [page](CONTRIBUTE.md)
+Read this [page](CONTRIBUTING.md)
 
 ## Reporting Issues
 
