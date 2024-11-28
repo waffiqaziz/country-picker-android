@@ -4,7 +4,7 @@ agp = "8.7.2"
 kotlin = "2.0.21"
 
 # AndroidX Libraries
-coreKtx = "1.13.1"
+coreKtx = "1.15.0"
 appcompat = "1.7.0"
 
 # UI components
