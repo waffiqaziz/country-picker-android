@@ -1,34 +1,29 @@
 version: 2.1
 orbs:
   android: circleci/android@3.0.2
+
 executors:
   android-executor:
     docker:
       - image: cimg/android:2025.01
     environment:
       JVM_OPTS: -Xmx3200m
+
 jobs:
   build:
     executor: android-executor
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-gradle-cache-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
       - run:
           name: Grant execute permission for Gradle wrapper
           command: chmod +x gradlew
       - run:
-          name: Download Depedencies
-          command: ./gradlew androidDependencies
+          name: Cache Gradle packages
+          command: |
+            mkdir -p ~/.gradle/caches ~/.gradle/wrapper
       - run:
           name: Build APK
           command: ./gradlew assembleDebug
-      - save_cache:
-          paths:
-            - ~/.gradle/caches
-            - ~/.gradle/wrapper
-          key: v1-gradle-cache-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
       - store_artifacts:
           path: app/build/outputs/apk/debug/app-debug.apk
           destination: app-debug.apk
@@ -43,24 +38,52 @@ jobs:
           name: Grant execute permission for Gradle wrapper
           command: chmod +x gradlew
       - run:
+          name: Cache Gradle packages
+          command: mkdir -p ~/.gradle/caches ~/.gradle/wrapper
+      - run:
           name: Run Unit Tests
           command: ./gradlew testDebugUnitTest
-      - save_cache:
-          paths:
-            - ~/.gradle/caches
-            - ~/.gradle/wrapper
-          key: v1-gradle-cache-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
       - store_test_results:
           path: app/build/test-results/testDebugUnitTest
       - store_artifacts:
           path: app/build/reports/tests/testDebugUnitTest
           destination: unit_test_reports
 
+  instrumented_test:
+    executor:
+      name: android/android_machine
+      resource_class: large
+      tag: 2024.01.1
+    steps:
+      - checkout
+      - restore_cache:
+          key: android-orb-v1-
+      - android/change_java_version:
+          java_version: 17
+      - run:
+          name: Chmod permissions
+          command: chmod +x ./gradlew
+      - android/start_emulator_and_run_tests:
+          no_boot_anim: true
+          no_window: true
+          system_image: system-images;android-29;google_apis;x86_64
+          test_command: ./gradlew connectedDebugAndroidTest --stacktrace
+      - android/save_gradle_cache:
+          cache_prefix: v1a
+      - store_test_results:
+          path: app/build/reports/androidTests/connected/debug
+      - store_artifacts:
+          path: app/build/reports/androidTests/connected/debug
+          destination: unit_test_reports
+
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - unit_tests
-      - build:
+      - build
+      - unit_tests:
           requires:
-            - unit_tests
+            - build
+      - instrumented_test:
+          requires:
+            - build
