@@ -74,6 +74,11 @@ jobs:
       - android/run_tests
       - android/save_gradle_cache:
           cache_prefix: v1a
+      - store_test_results:
+          path: app/build/reports/androidTests/connected/debug
+      - store_artifacts:
+          path: app/build/reports/androidTests/connected/debug
+          destination: unit_test_reports
 
 workflows:
   version: 2
