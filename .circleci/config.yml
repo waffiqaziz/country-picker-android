@@ -48,8 +48,8 @@ jobs:
 
   instrumented_test:
     executor:
-      name: android/android-machine
-      resource-class: large
+      name: android/android_machine
+      resource_class: large
       tag: 2024.01.1
     steps:
       - checkout
