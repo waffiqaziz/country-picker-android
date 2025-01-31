@@ -63,11 +63,11 @@ jobs:
       - run:
           name: Chmod permissions
           command: chmod +x ./gradlew
-      - android/start-emulator-and-run-tests:
-          no-boot-anim: true
-          no-window: true
-          system-image: system-images;android-29;google_apis;x86_64
-          test-command: ./gradlew connectedDebugAndroidTest --stacktrace
+      - android/start_emulator_and_run_tests:
+          no_boot_anim: true
+          no_window: true
+          system_image: system-images;android-29;google_apis;x86_64
+          test_command: ./gradlew connectedDebugAndroidTest --stacktrace
       - android/save_gradle_cache:
           cache_prefix: v1a
       - store_test_results:
