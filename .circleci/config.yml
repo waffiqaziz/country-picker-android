@@ -15,6 +15,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Grant execute permission for Gradle wrapper
+          command: chmod +x gradlew
+      - run:
           name: Cache Gradle packages
           command: |
             mkdir -p ~/.gradle/caches ~/.gradle/wrapper
