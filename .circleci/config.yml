@@ -55,22 +55,22 @@ jobs:
       - checkout
       - restore_cache:
           key: android-orb-v1-
-      - android/change-java-version:
-          java-version: 17
+      - android/change_java_version:
+          java_version: 17
       - run:
           name: Chmod permissions
           command: chmod +x ./gradlew
-      - android/create-avd:
-          avd-name: myAvd
+      - android/create_avd:
+          avd_name: myAvd
           install: true
           system-image: system-images;android-29;default;x86
-      - android/start-emulator:
-          avd-name: myAvd
-          no-window: true
-          restore-gradle-cache-prefix: v1a
-      - android/run-tests
-      - android/save-gradle-cache:
-          cache-prefix: v1a
+      - android/start_emulator:
+          avd_name: myAvd
+          no_window: true
+          restore_gradle_cache_prefix: v1a
+      - android/run_tests
+      - android/save_gradle_cache:
+          cache_prefix: v1a
 
 workflows:
   version: 2
