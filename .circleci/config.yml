@@ -63,15 +63,11 @@ jobs:
       - run:
           name: Chmod permissions
           command: chmod +x ./gradlew
-      - android/create_avd:
-          avd_name: myAvd
-          install: true
-          system_image: system-images;android-31;default;x86_64
-      - android/start_emulator:
-          avd_name: myAvd
+      - android/start_emulator_and_run_tests:
+          no_boot_anim: true
           no_window: true
-          restore_gradle_cache_prefix: v1a
-      - android/run_tests
+          system_image: system-images;android-29;google_apis;x86_64
+          test_command: ./gradlew connectedDebugAndroidTest --stacktrace
       - android/save_gradle_cache:
           cache_prefix: v1a
       - store_test_results:
