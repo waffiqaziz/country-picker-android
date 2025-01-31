@@ -67,10 +67,10 @@ class CountryPickerDialogInstrumentedTest {
     onView(withId(cpb_test)).perform(click())
 
     onView(withId(rv_country)).perform(
-      RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
-        115
+      RecyclerViewActions.scrollTo<RecyclerView.ViewHolder>(
+        hasDescendant(withText("Indonesia"))
       )
-    )
+    ).check(matches(isDisplayed()))
 
     // Select country in the list
     onView(withText("Indonesia")).perform(click())
