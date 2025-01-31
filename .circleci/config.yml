@@ -1,27 +1,23 @@
 version: 2.1
 orbs:
   android: circleci/android@3.0.2
+
 executors:
   android-executor:
     docker:
       - image: cimg/android:2025.01
     environment:
       JVM_OPTS: -Xmx3200m
+
 jobs:
   build:
     executor: android-executor
     steps:
       - checkout
       - run:
-        name: Cache Gradle packages
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+          name: Cache Gradle packages
+          command: |
+            mkdir -p ~/.gradle/caches ~/.gradle/wrapper
       - run:
           name: Build APK
           command: ./gradlew assembleDebug
@@ -39,15 +35,8 @@ jobs:
           name: Grant execute permission for Gradle wrapper
           command: chmod +x gradlew
       - run:
-        name: Cache Gradle packages
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+          name: Cache Gradle packages
+          command: mkdir -p ~/.gradle/caches ~/.gradle/wrapper
       - run:
           name: Run Unit Tests
           command: ./gradlew testDebugUnitTest
@@ -64,8 +53,6 @@ jobs:
       tag: 2024.01.1
     steps:
       - checkout
-      - restore_cache:
-          key: android-orb-v1-
       - android/change-java-version:
           java-version: 17
       - run:
@@ -78,17 +65,14 @@ jobs:
       - android/start-emulator:
           avd-name: myAvd
           no-window: true
-          restore-gradle-cache-prefix: v1a
       - android/run-tests
-      - android/save-gradle-cache:
-          cache-prefix: v1a
 
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
-      - unit_test:
+      - unit_tests:
           requires:
             - build
       - instrumented_test:
