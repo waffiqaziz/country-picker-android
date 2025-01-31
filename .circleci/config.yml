@@ -12,23 +12,18 @@ jobs:
     executor: android-executor
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-gradle-cache-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
-      - run:
-          name: Grant execute permission for Gradle wrapper
-          command: chmod +x gradlew
-      - run:
-          name: Download Depedencies
-          command: ./gradlew androidDependencies
+      - name: Cache Gradle packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
       - run:
           name: Build APK
           command: ./gradlew assembleDebug
-      - save_cache:
-          paths:
-            - ~/.gradle/caches
-            - ~/.gradle/wrapper
-          key: v1-gradle-cache-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
       - store_artifacts:
           path: app/build/outputs/apk/debug/app-debug.apk
           destination: app-debug.apk
@@ -42,25 +37,58 @@ jobs:
       - run:
           name: Grant execute permission for Gradle wrapper
           command: chmod +x gradlew
+      - name: Cache Gradle packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
       - run:
           name: Run Unit Tests
           command: ./gradlew testDebugUnitTest
-      - save_cache:
-          paths:
-            - ~/.gradle/caches
-            - ~/.gradle/wrapper
-          key: v1-gradle-cache-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
       - store_test_results:
           path: app/build/test-results/testDebugUnitTest
       - store_artifacts:
           path: app/build/reports/tests/testDebugUnitTest
           destination: unit_test_reports
+  
+    instrumented_test:
+      executor:
+        name: android/android-machine
+        resource-class: large
+        tag: 2024.01.1
+      steps:
+        - checkout
+        - restore_cache:
+            key: android-orb-v1-
+        - android/change-java-version:
+            java-version: 17
+        - run:
+            name: Chmod permissions
+            command: chmod +x ./gradlew
+        - android/create-avd:
+            avd-name: myAvd
+            install: true
+            system-image: system-images;android-29;default;x86
+        - android/start-emulator:
+            avd-name: myAvd
+            no-window: true
+            restore-gradle-cache-prefix: v1a
+        - android/run-tests
+        - android/save-gradle-cache:
+            cache-prefix: v1a
 
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - unit_tests
-      - build:
+      - build
+      - unit_test:
           requires:
-            - unit_tests
+            - build
+      - instrumented_test:
+          requires:
+            - build
