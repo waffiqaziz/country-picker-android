@@ -5,7 +5,7 @@ orbs:
 executors:
   android-executor:
     docker:
-      - image: cimg/android:2025.03
+      - image: cimg/android:2025.04
     environment:
       JVM_OPTS: -Xmx3200m
 
