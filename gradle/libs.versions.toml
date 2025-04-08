@@ -1,7 +1,7 @@
 [versions]
 # Plugin versions
 agp = "8.9.1"
-kotlin = "2.1.10"
+kotlin = "2.1.20"
 
 # AndroidX Libraries
 coreKtx = "1.15.0"
