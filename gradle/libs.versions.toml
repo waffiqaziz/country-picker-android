@@ -5,7 +5,7 @@ kotlin = "2.1.21"
 
 # AndroidX Libraries
 coreKtx = "1.16.0"
-appcompat = "1.7.0"
+appcompat = "1.7.1"
 
 # UI components
 material = "1.12.0"
