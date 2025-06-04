@@ -73,7 +73,7 @@ afterEvaluate {
         from(components["release"])
         groupId = "com.github.waffiqaziz"
         artifactId = "country-picker"
-        version = "0.1.1"
+        version = "0.1.3"
       }
     }
   }
