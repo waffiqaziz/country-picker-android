@@ -8,7 +8,7 @@ plugins {
 
 android {
   namespace = "com.waffiq.countryPicker.countryPicker"
-  compileSdk = 35
+  compileSdk = 36
 
   defaultConfig {
     minSdk = 23
