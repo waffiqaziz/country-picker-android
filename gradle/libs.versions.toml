@@ -23,7 +23,7 @@ mockito = "5.19.0"
 mockitoKotlinVersion = "6.0.0"
 espresso = "3.7.0"
 mockkVersion = "1.13.13"
-robolectric = "4.15.1"
+robolectric = "4.16"
 constraintlayout = "2.2.1"
 
 [libraries]
