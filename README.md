@@ -209,7 +209,7 @@ Grateful acknowledgment to the following resources and projects for their valuab
 [Apache Version 2.0](LICENSE)
 
 ```text
-Copyright 2024 Waffiq Aziz
+Copyright 2024-2026 Waffiq Aziz
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
