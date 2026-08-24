@@ -1,6 +1,6 @@
 [versions]
 # Plugin versions
-agp = "9.3.1"
+agp = "9.3.2"
 
 # AndroidX Libraries
 coreKtx = "1.18.0"
