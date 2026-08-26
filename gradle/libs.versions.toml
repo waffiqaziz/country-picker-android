@@ -3,7 +3,7 @@
 agp = "9.3.2"
 
 # AndroidX Libraries
-coreKtx = "1.18.0"
+coreKtx = "1.19.0"
 appcompat = "1.8.0"
 
 # UI components
